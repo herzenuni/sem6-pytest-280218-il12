@@ -13,8 +13,14 @@ def dictn(keys, values):
 
 
 @given(st.lists(st.integers()), st.lists(st.text()))
-def test_dictn(a, b):
-    res = dict.fromkeys(a, None)
-    res.update(zip(a,b))
-    assert dictn(a,b) == res
+def test_len_dictn(a, b):
+    assert len(dictn(a,b)) == len(a) or len(dictn(a,b)) == len(b)
 
+@given(st.lists(st.integers()), st.lists(st.text()))
+def test_type_dictn(a, b):
+    assert type(dictn(a,b)) == dict
+
+@given(st.lists(), st.lists())
+def test_try_different_lists_dictn(a, b):
+    assert type(dictn(a,b)) == dict
+    assert len(dictn(a,b)) == len(a) or len(dictn(a,b)) == len(b)
