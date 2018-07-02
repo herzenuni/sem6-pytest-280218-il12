@@ -9,10 +9,17 @@ def dictn(keys, values):
         result.update(zip(keys, values))
         return result
 
+class TestDictn:
 
-def test_dictn():
-    assert dictn([1,2,3],['a','b','c'])=={1: 'a', 2: 'b', 3: 'c'}
-    assert dictn([1,2,3], 3)==None
-    assert dictn(3,['a','b','c'])==None
-    assert dictn([],['a','b','c'])=={}
+    def test_dictn1(self):
+        assert(dictn([1,2,3],['a','b','c'])=={1: 'a', 2: 'b', 3: 'c'})
+
+    def test_dictn2(self):
+        assert(dictn([1,2,3], 3)==None)
+
+    def test_dictn3(self):
+        assert(dictn(3,['a','b','c'])==None)
+
+    def test_dictn4(self):
+        assert(dictn([],['a','b','c'])=={})
 
